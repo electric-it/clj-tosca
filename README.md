@@ -1,6 +1,6 @@
 # clj-tosca
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to build up a node or node-instance in tosca.
 
 ## Usage
 
@@ -12,5 +12,4 @@ Copyright © 2015 FIXME
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
-# clj-tosca
-# clj-tosca
+
