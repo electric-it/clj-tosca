@@ -1,24 +1,28 @@
 (ns clj-tosca.node-instance)
 
-(defn build []
+(defn build
+  "Builds a node with state and properties."
+  []
   {:node_instance {
                    :properties {}
                    }})
 
-(defn add [nodei property value]
-  (let [prev (->> (:node_instance nodei)
-                  (:properties))
-        new-val (merge prev {(keyword property) value})]
-    (if (nil? value)
-      nodei
-      (assoc-in nodei [:node_instance :properties] new-val))))
+(defn ^:no-doc add [nodei property value]
+  (if (nil? value)
+    nodei
+    (update-in nodei [:node_instance :properties]
+               assoc (keyword property) value)))
 
 
-(defn add-state [node state]
+(defn add-state
+  "Adds the current state of this node."
+  [node state]
   (if (nil? state)
     node
     (assoc-in node [:node_instance :state] state)))
 
-(defn add-property [nodei name value]
+(defn add-property
+  "Adds a property and value to properties."
+  [nodei name value]
   (let [node-w-prop (add nodei name value)]
     node-w-prop))
