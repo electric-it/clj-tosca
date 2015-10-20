@@ -1,3 +1,3 @@
 # Introduction to clj-tosca
 
-TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)
+See an [example file](../example.clj) and the tests for examples. 
