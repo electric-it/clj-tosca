@@ -13,20 +13,22 @@
 
 (def tosca (template/build node-instance node))
 
-(template/publish tosca)
+(template/publish tosca)  ;; default yaml
 
-;; outputs
+;; outputs yaml 
 
-;; "{\"tosca_definitions_version\":\"tosca_simple_yaml_1_0\",\"node_instance\":{\"properties\":{\"instance_name\":\"4U321PO\"},\"state\\":\"started\"},\"node_types\":{\"ServerNode\":{\"type\":\"tosca.nodes.Compute\",\"properties\":{\"mem_size\":\"4 MB\",\"disk_size\":\\"10 GB\"
+;; "tosca_definitions_version: tosca_simple_yaml_1_0\nnode_instance:\n  properties: {instance_name: 4U321PO}\n  state: started\nnode_types:\n  ServerNode:\n    type: tosca.nodes.Compute\n    properties: {mem_size: 4 MB, disk_size: 10 GB}\n    attributes: {}\n    requirements: {}\n    capabilities: {}\n    interfaces: {}\n    artifacts: {}\n    metadatas: {}\n""
+
+
 
 (template/publish tosca "edn")
 
-;; outputs
+;; outputs edn
 
 ;; "{:tosca_definitions_version \"tosca_simple_yaml_1_0\", :node_instance {:properties {:instance_name \"4U321PO\"}, :state \"started"}, :node_types {:ServerNode {:type \"tosca.nodes.Compute\", :properties {:mem_size \"4 MB\", :disk_size \"10 GB\"}, :attributes {}, :requirements {}, :capabilities {}, :interfaces {}, :artifacts {}, :metadatas {}}}}"
 
 (template/publish tosca "json")
 
-;;outputs
+;; outputs json
 
 ;; "{\"tosca_definitions_version\":\"tosca_simple_yaml_1_0\",\"node_instance\":{\"properties\":{\"instance_name\":\"4U321PO\"},\"state\\":\"started\"},\"node_types\":{\"ServerNode\":{\"type\":\"tosca.nodes.Compute\",\"properties\":{\"mem_size\":\"4 MB\",\"disk_size\":\\"10 GB\"
