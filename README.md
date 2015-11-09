@@ -22,11 +22,14 @@ A Clojure library designed to build up a node or node-instance in tosca. You can
 (def tosca (template/build node-instance node))
 ```
 
+## Output formats
 
+Tosca's format is yaml but for ease of use you may want to transport with json or edn between applications.
+
+
+#### yaml
 ```
-#### outputs yaml
-
-(template/publish tosca)  ;; default is yaml
+(template/publish tosca)  ;; default
 
 
 tosca_definitions_version: tosca_simple_yaml_1_0
@@ -43,10 +46,11 @@ tosca_definitions_version: tosca_simple_yaml_1_0
           interfaces: {}
           artifacts: {}
           metadatas: {}
-
+```
 
 #### outputs edn
 
+```
 (template/publish tosca "edn")
 
 {:tosca_definitions_version "tosca_simple_yaml_1_0"
@@ -62,9 +66,11 @@ tosca_definitions_version: tosca_simple_yaml_1_0
                  :interfaces {}
                  :artifacts {}
                  :metadatas {}}}}
+```
 
 #### outputs json
 
+```
 (template/publish tosca "json")
 
 {"tosca_definitions_version" : "tosca_simple_yaml_1_0",
