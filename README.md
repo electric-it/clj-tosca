@@ -19,28 +19,68 @@ A Clojure library designed to build up a node or node-instance in tosca. You can
                        (nodei/add-property "instance_name" "4U321PO")))
 
 (def tosca (template/build node-instance node))
+```
+
+
+```
+#### outputs yaml
 
 (template/publish tosca)  ;; default is yaml
 
-;; outputs yaml
 
-;; "tosca_definitions_version: tosca_simple_yaml_1_0\nnode_instance:\n  properties: {instance_name: 4U321PO}\n  state: started\nnode_t\
-ypes:\n  ServerNode:\n    type: tosca.nodes.Compute\n    properties: {mem_size: 4 MB, disk_size: 10 GB}\n    attributes: {}\n    requi\
-rements: {}\n    capabilities: {}\n    interfaces: {}\n    artifacts: {}\n    metadatas: {}\n"
+tosca_definitions_version: tosca_simple_yaml_1_0
+  node_instance:
+    properties: {instance_name: 4U321PO}
+         state: started
+    node_types:
+      ServerNode:
+        type: tosca.nodes.Compute
+          properties: {mem_size: 4 MB, disk_size: 10 GB}
+          attributes: {}
+          requirements: {}
+          capabilities: {}
+          interfaces: {}
+          artifacts: {}
+          metadatas: {}
 
+
+#### outputs edn
 
 (template/publish tosca "edn")
 
-;; outputs edn
- 
-;; "{:tosca_definitions_version \"tosca_simple_yaml_1_0\", :node_instance {:properties {:instance_name \"4U321PO\"}, :state \"started"}, :node_types {:ServerNode {:type \"tosca.nodes.Compute\", :properties {:mem_size \"4 MB\", :disk_size \"10 GB\"}, :attributes {}, :requirements {}, :capabilities {}, :interfaces {}, :artifacts {}, :metadatas {}}}}"
+{:tosca_definitions_version "tosca_simple_yaml_1_0"
+  :node_instance {:properties
+                   {:instance_name "4U321PO"}
+                    :state \"started"}
+  :node_types {:ServerNode
+                {:type "tosca.nodes.Compute"
+                 :properties {:mem_size "4 MB", :disk_size \"10 GB\"}
+                 :attributes {}
+                 :requirements {}
+                 :capabilities {}
+                 :interfaces {}
+                 :artifacts {}
+                 :metadatas {}}}}
+
+#### outputs json
 
 (template/publish tosca "json")
 
-;; outputs json
-
-;; "{\"tosca_definitions_version\":\"tosca_simple_yaml_1_0\",\"node_instance\":{\"properties\":{\"instance_name\":\"4U321PO\"},\"state\\":\"started\"},\"node_types\":{\"ServerNode\":{\"type\":\"tosca.nodes.Compute\",\"properties\":{\"mem_size\":\"4 MB\",\"disk_size\":\\"10 GB\"
-
+{"tosca_definitions_version" : "tosca_simple_yaml_1_0",
+  "node_instance" : {"properties" : {"instance_name" : "4U321PO"},
+                     "state" : "started"},\
+  "node_types" : { "ServerNode" : {"type" : "tosca.nodes.Compute",
+                                   "properties" : { "mem_size" : "4 MB", "disk_size" : "10 GB"}
+                                   "attributes" : {},
+                                   "requirements" : {},
+                                   "capabilities" : {},
+                                   "interfaces" : {},
+                                   "artifacts" : {},
+                                   "metadatas" : {}
+                                   }
+                 }
+                                   
+}
 ```
 
 ## License
