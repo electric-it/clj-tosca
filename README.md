@@ -1,4 +1,5 @@
 # clj-tosca
+[![Build Status](https://magnum.travis-ci.com/electric-it/clj-tosca.svg?token=AFznLsPPsvhSExbjTyCs)](https://magnum.travis-ci.com/electric-it/clj-tosca)
 
 A Clojure library designed to build up a node or node-instance in tosca. You can publish a collection of nodes as TOSCA document with `template/build` and `template/publish` and export the document as yaml (default), json, or edn.
 
