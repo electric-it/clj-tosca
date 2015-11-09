@@ -27,8 +27,9 @@ A Clojure library designed to build up a node or node-instance in tosca. You can
 Tosca's format is yaml but for ease of use you may want to transport with json or edn between applications.
 
 
-#### yaml
-```
+#### yaml 
+
+```yaml
 (template/publish tosca)  ;; default
 
 
@@ -48,9 +49,9 @@ tosca_definitions_version: tosca_simple_yaml_1_0
           metadatas: {}
 ```
 
-#### outputs edn
+#### edn
 
-```
+```edn
 (template/publish tosca "edn")
 
 {:tosca_definitions_version "tosca_simple_yaml_1_0"
@@ -68,23 +69,24 @@ tosca_definitions_version: tosca_simple_yaml_1_0
                  :metadatas {}}}}
 ```
 
-#### outputs json
+#### json
 
-```
+```json
 (template/publish tosca "json")
 
-{"tosca_definitions_version" : "tosca_simple_yaml_1_0",
-  "node_instance" : {"properties" : {"instance_name" : "4U321PO"},
-                     "state" : "started"},\
-  "node_types" : { "ServerNode" : {"type" : "tosca.nodes.Compute",
-                                   "properties" : { "mem_size" : "4 MB", "disk_size" : "10 GB"}
-                                   "attributes" : {},
-                                   "requirements" : {},
-                                   "capabilities" : {},
-                                   "interfaces" : {},
-                                   "artifacts" : {},
-                                   "metadatas" : {}
-                                   }
+{ "tosca_definitions_version" : "tosca_simple_yaml_1_0",
+  "node_instance" : { "properties" : {"instance_name" : "4U321PO"},
+                      "state" : "started"},
+  "node_types" : { "ServerNode" :
+                   { "type" : "tosca.nodes.Compute",
+                     "properties" : { "mem_size" : "4 MB", "disk_size" : "10 GB"},
+                     "attributes" : {},
+                     "requirements" : {},
+                     "capabilities" : {},
+                     "interfaces" : {},
+                     "artifacts" : {},
+                     "metadatas" : {}
+                   }
                  }
                                    
 }
