@@ -5,7 +5,7 @@ A Clojure library designed to build up a node or node-instance in tosca. You can
 
 ## Usage
 
-```
+```clj
 (ns clj-tosca.example
   (require [clj-tosca.node :as node]
            [clj-tosca.node-instance :as nodei]

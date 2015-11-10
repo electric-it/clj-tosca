@@ -3,18 +3,16 @@
 (defn build
   "Builds a server node with boilerplate format of type Compute."
   []
-  (let [node {:node_types
-              {:ServerNode
-                {:type "tosca.nodes.Compute"
-                 :properties {}
-                 :attributes {}
-                 :requirements {} 
-                 :capabilities {}
-                 :interfaces {}
-                 :artifacts {}
-                 :metadatas {}
-                 }}}]
-    node))
+  {:node_types
+   {:ServerNode
+    {:type "tosca.nodes.Compute"
+     :properties {}
+     :attributes {}
+     :requirements {} 
+     :capabilities {}
+     :interfaces {}
+     :artifacts {}
+     :metadatas {} }}})
 
 (defn ^:no-doc add [node type property value]
   (if (nil? value)
