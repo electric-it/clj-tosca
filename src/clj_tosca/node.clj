@@ -2,22 +2,24 @@
 
 (defn build
   "Builds a server node with boilerplate format of type Compute."
-  []
-  {:node_types
-   {:ServerNode
-    {:type "tosca.nodes.Compute"
-     :properties {}
-     :attributes {}
-     :requirements {} 
-     :capabilities {}
-     :interfaces {}
-     :artifacts {}
-     :metadatas {} }}})
+  ([]
+   (build "tosca.nodes.Compute"))
+  ([type-name]
+      {:node_types
+       {:Node
+        {:type type-name
+         :properties {}
+         :attributes {}
+         :requirements {} 
+         :capabilities {}
+         :interfaces {}
+         :artifacts {}
+         :metadatas {} }}}))
 
 (defn ^:no-doc add [node type property value]
   (if (nil? value)
     node
-    (update-in node [:node_types :ServerNode (keyword type)]
+    (update-in node [:node_types :Node (keyword type)]
                assoc (keyword property) value)))
 
 

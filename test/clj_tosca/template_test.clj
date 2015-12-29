@@ -14,7 +14,7 @@
         nodei (-> (nodei/build)
                   (nodei/add-property "state" "pending"))
         result (template/build nodei node)]
-    (is (= result {:node_instance {:properties {:state "pending"}}, :node_types {:ServerNode {:type "tosca.nodes.Compute", :properties {:system "on"}, :attributes {}, :requirements {}, :capabilities {}, :interfaces {}, :artifacts {}, :metadatas {}}}}))))
+    (is (= result {:node_instance {:properties {:state "pending"}}, :node_types {:Node {:type "tosca.nodes.Compute", :properties {:system "on"}, :attributes {}, :requirements {}, :capabilities {}, :interfaces {}, :artifacts {}, :metadatas {}}}}))))
 
 (deftest publishing-template
   (let [node (-> (node/build)
@@ -23,6 +23,7 @@
                   (nodei/add-property "state" "pending"))
         template (template/build nodei node)
         result (template/publish template)]
-    (is (= result "tosca_definitions_version: tosca_simple_yaml_1_0\nnode_instance:\n  properties: {state: pending}\nnode_types:\n  ServerNode:\n    type: tosca.nodes.Compute\n    properties: {system: 'on'}\n    attributes: {}\n    requirements: {}\n    capabilities: {}\n    interfaces: {}\n    artifacts: {}\n    metadatas: {}\n"))))
+    (is (= result "tosca_definitions_version: tosca_simple_yaml_1_0\nnode_instance:\n  properties: {state: pending}\nnode_types:\n  Node:\n    type: tosca.nodes.Compute\n    properties: {system: 'on'}\n    attributes: {}\n    requirements: {}\n    capabilities: {}\n    interfaces: {}\n    artifacts: {}\n    metadatas: {}\n"))))
+
 
 

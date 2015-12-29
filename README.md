@@ -38,7 +38,7 @@ tosca_definitions_version: tosca_simple_yaml_1_0
     properties: {instance_name: 4U321PO}
          state: started
     node_types:
-      ServerNode:
+      Node:
         type: tosca.nodes.Compute
           properties: {mem_size: 4 MB, disk_size: 10 GB}
           attributes: {}
@@ -58,7 +58,7 @@ tosca_definitions_version: tosca_simple_yaml_1_0
   :node_instance {:properties
                    {:instance_name "4U321PO"}
                     :state "started"}
-  :node_types {:ServerNode
+  :node_types {:Node
                 {:type "tosca.nodes.Compute"
                  :properties {:mem_size "4 MB", :disk_size "10 GB"}
                  :attributes {}
@@ -77,7 +77,7 @@ tosca_definitions_version: tosca_simple_yaml_1_0
 { "tosca_definitions_version" : "tosca_simple_yaml_1_0",
   "node_instance" : { "properties" : {"instance_name" : "4U321PO"},
                       "state" : "started"},
-  "node_types" : { "ServerNode" :
+  "node_types" : { "Node" :
                    { "type" : "tosca.nodes.Compute",
                      "properties" : { "mem_size" : "4 MB", "disk_size" : "10 GB"},
                      "attributes" : {},
