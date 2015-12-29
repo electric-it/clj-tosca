@@ -1,5 +1,5 @@
 # clj-tosca
-[![Build Status](https://magnum.travis-ci.com/electric-it/clj-tosca.svg?token=AFznLsPPsvhSExbjTyCs)](https://magnum.travis-ci.com/electric-it/clj-tosca)
+[![Build Status](https://travis-ci.org/electric-it/clj-tosca.svg)](https://travis-ci.org/electric-it/clj-tosca)
 
 A Clojure library designed to build up a node or node-instance in tosca. You can publish a collection of nodes as TOSCA document with `template/build` and `template/publish` in yaml (default), json, or edn.
 
@@ -27,7 +27,7 @@ A Clojure library designed to build up a node or node-instance in tosca. You can
 Tosca's format is yaml but for ease of use you may want to transport with json or edn between applications.
 
 
-#### yaml 
+#### yaml
 
 ```yaml
 (template/publish tosca)  ;; default
@@ -88,7 +88,7 @@ tosca_definitions_version: tosca_simple_yaml_1_0
                      "metadatas" : {}
                    }
                  }
-                                   
+
 }
 ```
 
@@ -101,4 +101,3 @@ You may obtain a copy of the License at
 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-
