@@ -1,7 +1,7 @@
 # clj-tosca
 [![Build Status](https://travis-ci.org/electric-it/clj-tosca.svg)](https://travis-ci.org/electric-it/clj-tosca)
 
-A Clojure library designed to build up a node or node-instance in tosca. You can publish a collection of nodes as TOSCA document with `template/build` and `template/publish` in yaml (default), json, or edn.
+A Clojure library designed to build up a node or node-instance in tosca. You can publish a collection of nodes as TOSCA document with `template/build` and `template/publish` in yaml (default), json, or edn. Can be used in clojure or clojurescript.
 
 ## Usage
 
