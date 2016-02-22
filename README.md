@@ -1,25 +1,23 @@
 # clj-tosca
 [![Build Status](https://travis-ci.org/electric-it/clj-tosca.svg)](https://travis-ci.org/electric-it/clj-tosca)
 
-A Clojure library designed to build up a node or node-instance in tosca. You can publish a collection of nodes as TOSCA document with `template/build` and `template/publish` in yaml (default), json, or edn. Can be used in clojure or clojurescript.
+A Clojure library designed to build up a node or instance in tosca. You can publish a collection of nodes as TOSCA document with `template-build` and `template-publish` in yaml (default), json, or edn. Can be used in clojure or clojurescript.
 
 ## Usage
 
 ```clj
 (ns clj-tosca.example
-  (require [clj-tosca.node :as node]
-           [clj-tosca.node-instance :as nodei]
-           [clj-tosca.template :as template]))
+  (:require [clj-tosca.tosca :refer :all]))
 
-(def node (-> (node/build)
-              (node/add-property "mem_size" "4 MB")
-              (node/add-property "disk_size" "10 GB")))
+(def node (-> (node-build)
+              (node-add-property "mem_size" "4 MB")
+              (node-add-property "disk_size" "10 GB")))
 
-(def node-instance (-> (nodei/build)
-                       (nodei/add-state "started")
-                       (nodei/add-property "instance_name" "4U321PO")))
+(def instance (-> (instance-build)
+                  (instance-add-state "started")
+                  (instance-add-property "instance_name" "4U321PO")))
 
-(def tosca (template/build node-instance node))
+(def tosca-template (template-build instance node))
 ```
 
 ## Output formats
@@ -30,7 +28,7 @@ Tosca's format is yaml but for ease of use you may want to transport with json o
 #### yaml
 
 ```yaml
-(template/publish tosca)  ;; default
+(template-publish tosca)  ;; default
 
 
 tosca_definitions_version: tosca_simple_yaml_1_0
@@ -52,7 +50,7 @@ tosca_definitions_version: tosca_simple_yaml_1_0
 #### edn
 
 ```edn
-(template/publish tosca "edn")
+(template-publish tosca "edn")
 
 {:tosca_definitions_version "tosca_simple_yaml_1_0"
   :node_instance {:properties
@@ -72,7 +70,7 @@ tosca_definitions_version: tosca_simple_yaml_1_0
 #### json
 
 ```json
-(template/publish tosca "json")
+(template-publish tosca "json")
 
 { "tosca_definitions_version" : "tosca_simple_yaml_1_0",
   "node_instance" : { "properties" : {"instance_name" : "4U321PO"},
